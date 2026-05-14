@@ -26,6 +26,7 @@ import {
 } from '@/assets/brand-icons'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { getLobeIcon } from '@/lib/lobe-icon'
 import { useOAuthLogin } from '../hooks/use-oauth-login'
 import type { SystemStatus } from '../types'
 
@@ -129,6 +130,7 @@ export function OAuthProviders({
         key: `custom-${provider.slug}`,
         label: t('Continue with {{name}}', { name: provider.name }),
         onClick: () => handleCustomOAuthLogin(provider),
+        icon: provider.icon ? getLobeIcon(provider.icon, 16) : undefined,
       })
     }
   }
